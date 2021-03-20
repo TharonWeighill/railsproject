@@ -4,8 +4,8 @@ class CreateCook < ActiveRecord::Migration[6.1]
       t.string :cook_first_name
       t.string :cook_last_name 
       t.string :cook_username
+      t.string :email
       t.string :password_digest
-
       t.timestamps
     end
   end

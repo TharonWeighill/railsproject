@@ -4,8 +4,8 @@ class CreateAgm < ActiveRecord::Migration[6.1]
       t.string :agm_first_name
       t.string :agm_last_name 
       t.string :agm_username
+      t.string :email
       t.string :password_digest
-
       t.timestamps
     end
   end

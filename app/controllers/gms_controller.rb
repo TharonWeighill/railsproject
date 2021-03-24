@@ -1,0 +1,2 @@
+class GmsController < ApplicationController 
+end 

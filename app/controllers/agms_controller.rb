@@ -1,0 +1,2 @@
+class AgmsController < ApplicationController 
+end 

@@ -1,3 +1,3 @@
-class Dining_note < ActiveRecord::Base
+class Dining_note < ApplicationRecord
     belongs_to :gm
 end 

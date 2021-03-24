@@ -1,4 +1,4 @@
-class Restaurant < ActiveRecord::Base
+class Restaurant < ApplicationRecord
     has :gm
     has :agm
     has :chef

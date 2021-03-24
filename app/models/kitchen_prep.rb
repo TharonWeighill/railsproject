@@ -1,3 +1,3 @@
-class Kitchen_prep < ActiveRecord::Base
+class Kitchen_prep < ApplicationRecord
     belongs_to :chef
 end 

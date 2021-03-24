@@ -1,4 +1,4 @@
-class Server < ActiveRecord::Base
+class Server < ApplicationRecord
     belongs_to :restaurant, through: :agm
     has_many :kitchen_preps, through: :agm
     has_secure_password

@@ -1,4 +1,4 @@
-class Chef < ActiveRecord::Base
+class Chef < ApplicationRecord
     belongs_to :restaurant, through: :gm
     has_many :kitchen_notes
     has_many :cooks

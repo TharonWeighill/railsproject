@@ -1,4 +1,4 @@
-class Cook < ActiveRecord::Base
+class Cook < ApplicationRecord
     belongs_to :restaurant, through: :chef
     has_many :kitchen_preps, through: :chef
     has_secure_password

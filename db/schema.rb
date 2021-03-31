@@ -10,90 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_173556) do
+ActiveRecord::Schema.define(version: 2021_03_31_232709) do
 
-  create_table "agms", force: :cascade do |t|
-    t.string "agm_first_name"
-    t.string "agm_last_name"
-    t.string "agm_username"
+  create_table "bartenders", force: :cascade do |t|
+    t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.text "about"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "chefs", force: :cascade do |t|
-    t.string "chef_first_name"
-    t.string "chef_last_name"
-    t.string "chef_username"
-    t.string "email"
-    t.string "password_digest"
+  create_table "comments", force: :cascade do |t|
+    t.text "textbody"
+    t.integer "recipe_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_comments_on_recipe_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.text "ingredient"
+    t.text "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "cooks", force: :cascade do |t|
-    t.string "cook_first_name"
-    t.string "cook_last_name"
-    t.string "cook_username"
-    t.string "email"
-    t.string "password_digest"
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.integer "ingredient_id"
+    t.string "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
   end
 
-  create_table "dining_notes", force: :cascade do |t|
-    t.text "d_note"
+  create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.text "directions"
+    t.string "category"
+    t.integer "bartender_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["bartender_id"], name: "index_recipes_on_bartender_id"
   end
 
-  create_table "dining_preps", force: :cascade do |t|
-    t.text "d_prep"
-    t.text "d_prep_note"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "gms", force: :cascade do |t|
-    t.string "gm_first_name"
-    t.string "gm_last_name"
-    t.string "gm_username"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "kitchen_notes", force: :cascade do |t|
-    t.text "k_note"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "kitchen_preps", force: :cascade do |t|
-    t.text "k_prep"
-    t.text "k_prep_note"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "restaurants", force: :cascade do |t|
-    t.string "r_name"
-    t.string "r_username"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "servers", force: :cascade do |t|
-    t.string "server_first_name"
-    t.string "server_last_name"
-    t.string "server_username"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
+  add_foreign_key "comments", "recipes", on_delete: :cascade
+  add_foreign_key "recipes", "bartenders", on_delete: :cascade
 end

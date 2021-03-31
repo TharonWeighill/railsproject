@@ -1,0 +1,2 @@
+class Bartender < ApplicationRecord
+end

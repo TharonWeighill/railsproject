@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_31_232709) do
+ActiveRecord::Schema.define(version: 2021_03_31_235253) do
 
   create_table "bartenders", force: :cascade do |t|
     t.string "username"
@@ -29,21 +29,21 @@ ActiveRecord::Schema.define(version: 2021_03_31_232709) do
     t.index ["recipe_id"], name: "index_comments_on_recipe_id"
   end
 
-  create_table "ingredients", force: :cascade do |t|
-    t.text "ingredient"
-    t.text "value"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "recipe_ingredients", force: :cascade do |t|
+  create_table "ingredient_recipes", force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "ingredient_id"
     t.string "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
-    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+    t.index ["ingredient_id"], name: "index_ingredient_recipes_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_ingredient_recipes_on_recipe_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.text "ingredient"
+    t.text "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "recipes", force: :cascade do |t|

@@ -6,11 +6,19 @@ class RecipesController < ApplicationController
         find_recipe 
     end
 
+    
+    
+    
+    
     private 
     
     def find_recipe
         @recipes = Recipe.all
     end 
-
-
+    
+    def find_category
+        find_recipe
+        @category = @recipes.catagory
+    end
+    
 end 

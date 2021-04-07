@@ -2,7 +2,7 @@ class BartendersController < ActionController
  
     #route to all users 
     def index
-        @users = User.all
+        @bartenders = Bartender.all
     end
 
     #show route for a single user

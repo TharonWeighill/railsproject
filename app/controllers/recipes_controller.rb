@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 
     #route to all recipes
     def index
-        find_recipe 
+        @recipes = Recipe.all
     end
     
     private 

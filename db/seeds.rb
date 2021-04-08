@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+20.times do 
+    Bartender.create(username: Faker::Internet.username, email: Faker::Internet.email, password: Faker::Internet.password, about: Faker::Games::Fallout.quote)
+end 
+
+20.times do
+    Recipe.create(name: Faker::CryptoCoin.coin_name, directions: Faker::Food.description, category: "Tropical" ) 
+end
+
+100.times do
+    Ingredient.create(ingredient: Faker::Food.ingredient, value: Faker::Food.measurement)
+end

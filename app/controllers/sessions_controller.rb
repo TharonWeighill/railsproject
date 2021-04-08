@@ -1,12 +1,6 @@
 class SessionsController < ActionController::Base
     
-    def welcome
+    def home
     end 
-
-    def create
-    end 
-
-    def new
-    end
 
 end

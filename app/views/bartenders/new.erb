@@ -1,0 +1,14 @@
+<h1>Create your account</h1>
+
+
+<%= form_for @bartender do |b|%>
+  <%= b.label :username%><br>
+  <%= b.text_field :username%><br>
+  <%= b.label :about%><br>
+  <%= b.text_field :about%><br>
+  <%= b.label :email%><br>
+  <%= b.text_field :email%><br>
+  <%= b.label :password%><br>
+  <%= b.password_field :password%><br>
+  <%= b.submit %>
+<%end%>

@@ -5,10 +5,6 @@ class RecipesController < ApplicationController
     def index
         find_recipe 
     end
-
-    
-    
-    
     
     private 
     

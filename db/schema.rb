@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 2021_03_31_235253) do
   create_table "comments", force: :cascade do |t|
     t.text "textbody"
     t.integer "recipe_id"
+    t.integer "bartender_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["bartender_id"], name: "index_comments_on_bartender_id"
     t.index ["recipe_id"], name: "index_comments_on_recipe_id"
   end
 
@@ -41,7 +43,6 @@ ActiveRecord::Schema.define(version: 2021_03_31_235253) do
 
   create_table "ingredients", force: :cascade do |t|
     t.text "ingredient"
-    t.text "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -50,15 +51,13 @@ ActiveRecord::Schema.define(version: 2021_03_31_235253) do
     t.string "name"
     t.text "directions"
     t.string "category"
-    t.integer "category_id"
     t.integer "bartender_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bartender_id"], name: "index_recipes_on_bartender_id"
-    t.index ["category_id"], name: "index_recipes_on_category_id"
   end
 
+  add_foreign_key "comments", "bartenders", on_delete: :cascade
   add_foreign_key "comments", "recipes", on_delete: :cascade
   add_foreign_key "recipes", "bartenders", on_delete: :cascade
-  add_foreign_key "recipes", "categories", on_delete: :cascade
 end

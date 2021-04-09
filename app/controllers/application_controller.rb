@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user
-    helper_method :logged_in?
+    helper_method :current_user, :logged_in?
+   
 
     def error
     end 
@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
     private
     
     def logged_in?
-        !current_user.nil?
+        !!current_user
     end 
 
     def current_user
-        User.find_by(id: sessions[:bartender_id])
+        @current_user ||= Bartender.find_by(id: sessions[:bartender_id])
     end 
 end

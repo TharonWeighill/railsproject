@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   root 'sessions#home'
-
-  resources :bartenders, except: [:index]
-  resources :recipes do
-    resources :catagories, only: :index
+  resources :recipes, only: [:new, :index, :create]
+  resources :bartenders, except: [:index] do
+    resources :recipes, shallow: true 
+  
+    
   end 
   resources :ingredients, except: [:index, :show, :update, :edit, :delete]
   resources :comments, only: [:new, :edit, :destroy]

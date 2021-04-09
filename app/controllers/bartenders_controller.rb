@@ -1,9 +1,9 @@
 class BartendersController < ActionController::Base
         before_action :find_bartender, only: [:show, :edit]
-        
-        
+            
     def show
-        @recipes = @user.recipes
+        redirect_if_not_logged_in
+        @recipes = @bartender.recipes
     end 
     
     def new
@@ -11,7 +11,7 @@ class BartendersController < ActionController::Base
     end 
 
     def create
-        bartender = Bartender.create(params[:bartender])
+        bartender = Bartender.create(params[:username, :email, :about, :password])
         if bartender.valid?
           flash[:success] = "Bartender Created!"
           session["bartender_id"] = bartender.id
@@ -31,5 +31,5 @@ class BartendersController < ActionController::Base
     def find_bartender
         @bartender = Bartender.find_by(id: params[:id])
     end
-    
+
 end 

@@ -25,6 +25,16 @@ class BartendersController < ActionController::Base
         redirect_if_not_logged_in
     end
 
+    def update
+        user = current_user
+        user.update(params["user"])
+        redirect 'user'
+    end 
+
+    def destroy
+
+    end 
+
 
     private 
 

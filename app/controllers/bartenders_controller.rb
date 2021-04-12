@@ -1,5 +1,5 @@
 class BartendersController < ActionController::Base
-    before_action :find_bartender, only: [:show, :edit, :destroy]
+    before_action :find_bartender, only: [:show, :edit, :update, :destroy]
         
     def new
         @bartender = Bartender.new       
@@ -11,7 +11,7 @@ class BartendersController < ActionController::Base
             @bartender.save
             redirect_to bartender_path(@bartender)
         else
-            flash[:error] = bartender.errors.full_messages.to_sentence 
+            flash[:error] = @bartender.errors.full_messages.to_sentence 
             render :new
         end
     end 
@@ -21,19 +21,24 @@ class BartendersController < ActionController::Base
     end 
    
     def edit
-        redirect_if_not_logged_in
+
     end
 
     def update
-        user = current_user
-        user.update(params["user"])
-        redirect 'user'
+
+        if @bartender.update(user_params)
+            redirect_to bartender_path(@bartender)
+        else
+            render :edit
+        end 
     end 
 
     def destroy
-        user.destroy
-        session.clear
-        redirect 'home'
+        if @bartender.destroy
+            redirect_to '/'
+        else
+            redirect_to back
+        end 
     end 
 
 

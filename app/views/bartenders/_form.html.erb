@@ -1,0 +1,14 @@
+  
+<%= form_for @bartender do |b| %>
+
+    Username: <%= b.text_field :username %>
+    <br>
+    About: <%= b.text_area :about %>
+    <br>
+    Email: <%= b.text_field :email %>
+    <br>
+    Password: <%= b.password_field :password %>
+    <br>
+    <%= b.submit %>
+    
+<% end %>

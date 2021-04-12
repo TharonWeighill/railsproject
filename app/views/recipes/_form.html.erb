@@ -1,0 +1,14 @@
+  
+<%= form_for @recipe do |r| %>
+
+    Name: <%= r.text_field :name %>
+    <br>
+    Directions: <%= r.text_area :directions %>
+    <br>
+    category: <%= b.text_field :category %>
+    <br>
+    Password: <%= b.password_field :password %>
+    <br>
+    <%= b.submit %>
+    
+<% end %>

@@ -1,0 +1,9 @@
+
+
+<h1> <%=@bartender.username%> </h1>
+<button> <%= link_to "EDIT",edit_bartender_path(@bartender) %></button>
+<button> <%= link_to "CREATE NEW RECIPE",edit_bartender_path(@bartender) %></button>
+<button> <%= link_to "VIEW RECIPES",edit_bartender_path(@bartender) %></button>
+
+
+<%= render partial: "modify_buttons", locals: {resource: @bartenders} %>

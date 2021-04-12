@@ -1,0 +1,4 @@
+<%= render partial: 'application/errors', locals: {object: @bartender} %>
+
+<%= render 'form' %>
+<%= link_to "destroy", @bartender , class: "btn btn-danger", data: {:confirm => 'Are you sure?'}, :method => :delete%>

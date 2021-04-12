@@ -5,7 +5,6 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.text :directions
       t.string :category
       t.references :bartender, foreign_key: {on_delete: :cascade}
-
       t.timestamps
     end
   end

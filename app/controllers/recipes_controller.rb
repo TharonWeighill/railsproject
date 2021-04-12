@@ -1,12 +1,11 @@
 class RecipesController < ApplicationController
    
-    before_action 
-        :find_recipe, only: [:index, :edit, :show], 
-        :find_ingredient, only: [:show, :edit], 
-        :find_comment, only: [:show]
+    before_action :find_recipe, only: [:index, :edit, :show, :destroy]
+    before_action :find_ingredient, only: [:show, :edit]
+    before_action :find_comment, only: :show
 
     def index
-        @recipes = Recipe.all
+        @recipe = Recipe.all
     end
 
     def show
@@ -14,23 +13,25 @@ class RecipesController < ApplicationController
 
     def new
         @recipe = Recipe.new
+        @ingredient = Ingredient.new
+        @value = IngredientRecipe.new
     end
 
     def create
-        redirect_if_not_logged_in
-        recipe = current_user.recipes.build(params["recipe"])
-        if recipe.save
-          params["ingredients"].each do |hash|
-          if hash["name"] != ""
-            ingredient= Ingredient.find_or_create_by(ingredient: hash["ingredient"].capitalize)
-            IngredientRecipe.create(ingredient: ingredient, recipe: recipe, value: hash["value"])
-          end
-        end
-        redirect "recipe"
-        else 
-          flash[:error] = recipe.errors.full_messages.to_sentence
-          redirect "new_recipe"
-        end 
+        # redirect_if_not_logged_in
+        # recipe = current_user.recipes.build(params["recipe"])
+        # if recipe.save
+        #   params["ingredients"].each do |hash|
+        #   if hash["name"] != ""
+        #     ingredient= Ingredient.find_or_create_by(ingredient: hash["ingredient"].capitalize)
+        #     IngredientRecipe.create(ingredient: ingredient, recipe: recipe, value: hash["value"])
+        #   end
+        # end
+        # redirect 'recipes'
+        # else 
+        #   flash[:error] = recipe.errors.full_messages.to_sentence
+        #   redirect 'new_recipe'
+        # end 
     end 
 
     def edit
@@ -41,11 +42,12 @@ class RecipesController < ApplicationController
         if @recipe.user != current_user 
             redirect 'recipes' 
         end 
-
     end 
     
     
     def destroy
+        recipe.delete
+        redirect 'recipes'
     end
 
     

@@ -1,3 +1,9 @@
-<h1>test</h1>
-       
-       
+<%= form_for @recipe do |r|%>
+  <%= r.label :name%><br>
+  <%= r.text_field :name%><br>
+  <%= r.label :directions%><br>
+  <%= r.text_field :directions%><br>
+  <%= r.label :category%><br>
+  <%= r.text_field :category%><br>
+  <%= r.submit %>
+<%end%>

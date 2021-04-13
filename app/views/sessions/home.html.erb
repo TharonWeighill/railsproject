@@ -1,0 +1,26 @@
+<h1>Welcome Bartender</h1>
+
+
+    <%= form_tag '/login' do %>
+       <br>
+       <%= label_tag :username %>
+       <%= text_field_tag :username %>
+       <br>
+       <%= label_tag :password%>
+       <%= password_field_tag :password%>
+       <br>
+       <%= submit_tag "Login"%>
+    <%end%>
+
+<%= link_to 'Sign In with Facebook', '/auth/facebook' %>
+<%= button_to "Sign Up", new_bartender_path, method: :get%>
+
+<div>
+<img src="https://thethreetomatoes.com/wp-content/uploads/2017/04/cocktails.png" class="img-fluid" >
+<div class="fixed-bottom">
+<div class="form-group">
+</div>
+                
+
+
+                

@@ -9,6 +9,7 @@ class BartendersController < ActionController::Base
         @bartender = Bartender.new(user_params)
         if @bartender.valid?
             @bartender.save
+            session[:bartender_id] = @bartender.id
             redirect_to bartender_path(@bartender)
         else
             flash[:error] = @bartender.errors.full_messages.to_sentence 

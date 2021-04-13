@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
    
-    before_action :find_recipe, only: [:index, :edit, :show, :destroy]
+    before_action :find_recipe, only: [:edit, :show, :update, :destroy]
     before_action :find_ingredient, only: [:show, :edit]
     before_action :find_comment, only: :show
 
@@ -38,26 +38,29 @@ class RecipesController < ApplicationController
     end 
 
     def update
-        redirect_if_not_logged_in
-        if @recipe.user != current_user 
-            redirect 'recipes' 
+        if @recipe.update(recipe_params)
+            redirect_to recipe_path(@recipe)
+        else
+            render :edit
         end 
     end 
     
     
+    
     def destroy
-        recipe.delete
-        redirect 'recipes'
-    end
+        if @recipe.destroy
+            redirect_to 'recipes'
+        else
+            redirect_to back
+        end 
+    end 
 
     
    
    
 private
 
-    def recipe_params(*args)
-        params.require(:recipe).permit(*args)
-    end
+
     
     def find_recipe
         @recipe = Recipe.find_by_id(params[:id])
@@ -77,5 +80,10 @@ private
         find_recipe
         @category = @recipes.catagory
     end
+
+    def recipe_params
+        params.require(:recipe).permit(:name, :category, :directions)
+    end
+
     
 end 

@@ -1,0 +1,4 @@
+<div class="modify-buttons">
+    <button> <%= link_to "EDIT",edit_recipe_path(@recipe) %></button>
+    <div class="delete-button"><%= button_to "Delete", resource, method: "delete", data: {confirm: "Are you sure???"}  %></div>
+</div>

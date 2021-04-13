@@ -1,30 +1,13 @@
+
   
 <%= form_for @recipe do |r| %>
 
     Name: <%= r.text_field :name %>
     <br>
-    Directions: <%= r.text_area :directions %>
+    Category: <%= r.text_area :category %>
     <br>
-    category: <%= b.text_field :category %>
+    directions: <%= r.text_field :directions %>
     <br>
-    Password: <%= b.password_field :password %>
-    <br>
-    <%= b.submit %>
+    <%= r.submit %>
     
 <% end %>
-
-
-<div class="form-input">
-    <%= form_builder.label :name %>
-    <%= form_builder.text_field :name%>
-</div>
-<div class="form-input">
-    <%= form_builder.label :category %>
-    <%= form_builder.select :category, options_for_select([Fizzes, Sours, Old Fashions, Three Parters ]), selected: recipe.category), include_blank: "Select a Category" %>
-</div>
-<div class="form-input">
-    <%= form_builder.label :directions %>
-    <%= form_builder.number_field :directions %><br>
-
-    <%= b.submit %>
-</div>

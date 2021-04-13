@@ -54,9 +54,13 @@ class RecipesController < ApplicationController
    
    
 private
+
+    def recipe_params(*args)
+        params.require(:recipe).permit(*args)
+    end
     
     def find_recipe
-        @recipes = Recipe.all
+        @recipe = Recipe.find_by_id(params[:id])
     end 
 
     def find_ingredient

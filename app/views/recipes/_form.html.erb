@@ -12,3 +12,19 @@
     <%= b.submit %>
     
 <% end %>
+
+
+<div class="form-input">
+    <%= form_builder.label :name %>
+    <%= form_builder.text_field :name%>
+</div>
+<div class="form-input">
+    <%= form_builder.label :category %>
+    <%= form_builder.select :category, options_for_select([Fizzes, Sours, Old Fashions, Three Parters ]), selected: recipe.category), include_blank: "Select a Category" %>
+</div>
+<div class="form-input">
+    <%= form_builder.label :directions %>
+    <%= form_builder.number_field :directions %><br>
+
+    <%= b.submit %>
+</div>

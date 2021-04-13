@@ -1,1 +1,5 @@
-<h1>test</h1>
+<h1><%= @recipe.name %></h1>
+<h1><%= @recipe.category %></h1>
+<h1><%= @recipe.directions %></h1>
+<button> <%= link_to "EDIT",edit_recipe_path(@recipe) %></button>
+<%= render partial: "modify_buttons", locals: {resource: @recipe} %>

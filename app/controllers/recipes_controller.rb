@@ -18,13 +18,7 @@ class RecipesController < ApplicationController
         # redirect_if_not_logged_in
         @recipe = Recipe.new(recipe_params(:name, :category, :directions))
         if @recipe.save
-            # # params["ingredients"].each do |hash|
-            # if hash["name"] != ""
-            #     ingredient= Ingredient.find_or_create_by(ingredient: hash["ingredient"].capitalize)
-            #     IngredientRecipe.create(ingredient: ingredient, recipe: recipe, value: hash["value"])
-            # end
             redirect_to @recipe
-    
         else 
             flash[:error] = @recipe.errors.full_messages.to_sentence
             redirect_to 'new_recipes'

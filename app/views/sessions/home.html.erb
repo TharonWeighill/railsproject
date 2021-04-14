@@ -1,18 +1,28 @@
 <h1>Welcome Bartender</h1>
 
 
-    <%= form_tag '/login' do %>
-       <br>
-       <%= label_tag :username %>
-       <%= text_field_tag :username %>
-       <br>
-       <%= label_tag :password%>
-       <%= password_field_tag :password%>
-       <br>
-       <%= submit_tag "Login"%>
-    <%end%>
 
-<%= link_to 'Sign In with Facebook', '/auth/facebook' %>
+<h1>Login</h1>
+
+<div id="login-form">
+    <%= form_with(model: @bartender, url: "/login") do |b| %>
+        <div class="form-control">
+            <%= b.label :username, class: "form-label" , class: "form-label" %>
+            <%= b.email_field :username, class: "form-input" %>
+        </div>
+        <div class="form-control">
+            <%= b.label :password, class: "form-label" , class: "form-label" %>
+            <%= b.password_field :password, class: "form-input" %>
+        </div>
+        <%= b.submit :login%>
+    <% end %>
+   
+    <div class="third-party-login">
+        <%= button_to "Login with Google", '/auth/google_oauth2'  %>
+        <%= button_to "Login with Github", '/auth/github'  %>
+    </div>
+</div>
+
 <%= button_to "Sign Up", new_bartender_path, method: :get%>
 
 <div>

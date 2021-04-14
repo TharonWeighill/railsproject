@@ -2,9 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
+
 gem 'faker'
 gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

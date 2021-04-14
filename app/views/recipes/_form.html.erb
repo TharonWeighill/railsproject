@@ -1,13 +1,11 @@
 
-  
-<%= form_for @recipe do |r| %>
+<%= form_with(model: @recipe) do |r| %>
+    <%= r.label :name %>
+    <%= r.text_field :name %>
+    <%= r.label :category%>
+    <%= r.text_field :category %>
+    <%= r.label :directions %>
+    <%= r.text_field :directions %>
+<%= r.submit %>
+    <%end%>
 
-    Name: <%= r.text_field :name %>
-    <br>
-    Category: <%= r.text_area :category %>
-    <br>
-    directions: <%= r.text_field :directions %>
-    <br>
-    <%= r.submit %>
-    
-<% end %>

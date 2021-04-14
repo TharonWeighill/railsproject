@@ -9,10 +9,6 @@ Rails.application.routes.draw do
 
   resources :recipes, only: [:new, :index, :create]
   resources :bartenders, except: [:index] do
-    resources :recipes, shallow: true 
-  
-    
+    resources :recipes, shallow: true    
   end 
-  resources :ingredients, except: [:index, :show, :update, :edit, :delete]
-  resources :comments, only: [:new, :edit, :destroy]
 end

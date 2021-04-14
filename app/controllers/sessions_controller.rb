@@ -11,20 +11,20 @@ class SessionsController < ApplicationController
       session[:bartender_id] = @bartender.id
       redirect_to bartender_path(@bartender)
     else
-      redirect_to '/recipes'
+     render :new
     end
   end 
 
-  def omniauth
-    # use byebug to inspect what the auth method returns
-    @bartender = Bartender.from_omniauth(auth)
-    if @bartender.valid?
-      session[:bartender_id] = @bartender.id
-      redirect_to @bartender
-    else
-      render :new
-    end
-  end
+  # def omniauth
+  # 
+  #   @bartender = Bartender.from_omniauth(auth)
+  #   if @bartender.valid?
+  #     session[:bartender_id] = @bartender.id
+  #     redirect_to @bartender
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def destroy
     session.clear

@@ -5,7 +5,7 @@ module ApplicationHelper
     end 
 
     def current_user
-        @current_user ||= Bartender.find_by(id: sessions[:bartender_id])
+        @current_user ||= Bartender.find_by(id: session[:bartender_id])
     end 
 
     def redirect_if_not_logged_in

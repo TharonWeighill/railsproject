@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:bartender_id] = @bartender.id
       redirect_to bartender_path(@bartender)
     else
-     render :new
+     render :home
     end
   end 
 

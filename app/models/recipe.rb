@@ -5,4 +5,4 @@ class Recipe < ApplicationRecord
     # has_many :ingredients, through: :ingredient_recipes
     # validates :name, presence: true, uniqueness: true
     # validates :category, presence: true
-end
+end 

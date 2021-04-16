@@ -49,7 +49,7 @@ class BartendersController < ActionController::Base
         @bartender = Bartender.find(params[:id])
     end
     def user_params
-        params.require(:bartender).permit(:username, :email, :password, :about)
+        params.require(:bartender).permit(:username, :about, :email, :password, :confirm_password)
     end
 
 end 

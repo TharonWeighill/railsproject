@@ -26,4 +26,9 @@ module ApplicationHelper
         end
     end 
     
+    def unit_list
+        [
+            "Oz", "Cup", "TSP", "Dash", "Pinch"
+        ]
+    end 
 end

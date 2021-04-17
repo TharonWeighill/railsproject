@@ -4,7 +4,7 @@ Specs:
 - [x] Include at least one belongs_to relationship 
 - [x] Include at least two has_many through relationships 
 - [x] Include at least one many-to-many relationship 
-- [] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
+- [] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user 
 - [x] Include reasonable validations for simple model objects 
 - [] Include a class level ActiveRecord scope method 
 - [x] Include login 
@@ -19,3 +19,11 @@ Confirm:
 - [] Limited logic in controllers
 - [x] Views use helper methods if appropriate
 - [x] Views use partials if appropriate
+
+
+#aliasing associtaions 
+#create recipe with ingredients and values
+#scope method
+#oauth w/google 
+#refactoring forms 
+#connecting css styling

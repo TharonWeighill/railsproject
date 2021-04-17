@@ -1,11 +1,20 @@
 
-<%= form_with(model: @recipe) do |r| %>
+<%= form_for(@recipe) do |r| %>
     <%= r.label :name %>
     <%= r.text_field :name %>
+    <br>
     <%= r.label :category%>
     <%= r.text_field :category %>
+    <br>
+   
+    <%= r.label :ingredient_ids, "Select an Ingredient" %>
+    <%= r.collection_select(:ingredients_ids,  Ingredient.all, :id, :ingredient, prompt: "Pick one")%> <%= r.number_field :quantity %><%=r.select(:unit, options_for_select(unit_list), prompt: "Select Dosage")%>
+    <br>
+    
+    <br>
     <%= r.label :directions %>
     <%= r.text_field :directions %>
+    <br>
 <%= r.submit %>
     <%end%>
 

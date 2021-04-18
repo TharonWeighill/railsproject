@@ -6,7 +6,7 @@ class CreateBartenders < ActiveRecord::Migration[6.1]
       t.string :password_digest
       t.text :about
       t.string :uid
-      t.sting :provider
+      t.string :provider
 
 
       t.timestamps

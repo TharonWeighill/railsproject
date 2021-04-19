@@ -22,6 +22,9 @@ Confirm:
 
 
 #create recipe with ingredients and values
+#create comments
+#display complete recipe card with commentsn ingredients and values
 #scope method
 #oauth w/google 
-#connecting css styling
+#nested route?
+

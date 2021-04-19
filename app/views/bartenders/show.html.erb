@@ -1,29 +1,26 @@
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <a href="/logout" class="btn btn-outline-primary">Logout</a>
 
-<blockquote class="blockquote text-center">  
-    <div class="row py-5 px-4">
-        <div class="col-md-5 mx-auto">
 
-            <div class="bg-white shadow rounded overflow-hidden">
-                <div class="px-4 pt-0 pb-4 cover">
-                    <div class="media align-items-end profile-head">
-                      
-                    <div class="profile mr-3"><img src="https://i.pinimg.com/originals/fb/27/35/fb2735ecd3fb5ef20fe166de60485fba.jpg">
-                </div>
-            </div>
-            <div class="bg-light p-4 d-flex justify-content-center text-center">
-                <h1> <%=@bartender.username%> </h1>
-            </div>
-            
-            <div class="px-4 py-3">
-                <div class="p-4 rounded shadow-sm bg-light">
-                    <p class="card-text"><%=@bartender.about%></p>
-                </div>
-            </div>
-<%= render partial: "modify_buttons", locals: {resource: @bartenders} %>
+<%= stylesheet_link_tag 'recipe_show' %>
+<aside class="profile-card">
 
-<h1> DRINKS </h1>
+    <header>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT61LJDRIwjkRuOjVe5uWEd44qRGOEzVmI20LKHBENs7S-uKCRHz-GXNLgaf4BFicTCU0c&usqp=CAU" class="hoverZoomLink">
+        <h1><%=@bartender.username%></h1>
+    </header>
+
+    <div class="profile-bio">
+        <p>
+        <h2><%=@bartender.about%></h2>
+      
+        </p>
+    </div>
+
 <button> <%= link_to "Look-N", recipes_path %></button>
 <button> <%= link_to "Make-N", new_recipe_path %></button>
+<button> <%= link_to "Logout", '/logout' %></button>
+<button><%= link_to "My Page", @bartender %> </button>
+
+<%= render partial: "modify_buttons", locals: {resource: @bartenders} %>
+
+</aside>

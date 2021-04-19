@@ -12,3 +12,8 @@ end
 20.times do
     Recipe.create(name: Faker::CryptoCoin.coin_name, directions: Faker::Food.description, category: "Tropical" ) 
 end
+
+
+100.times do
+    Ingredient.create(ingredient: Faker::Food.ingredient) 
+end

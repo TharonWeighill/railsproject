@@ -16,16 +16,21 @@ class SessionsController < ApplicationController
     end
   end 
 
-  # def omniauth
-  # 
-  #   @bartender = Bartender.from_omniauth(auth)
-  #   if @bartender.valid?
-  #     session[:bartender_id] = @bartender.id
-  #     redirect_to @bartender
-  #   else
-  #     render :new
-  #   end
-  # end
+    def omniauth
+     bartender = Bartender.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |b|
+        b.username = auth['info']['username']
+        b.email = auth['info']['email'] 
+        b.password = SecureRandom.hex(5)
+      end 
+      if bartender.valid?
+        session[:bartender_id] = bartender.id
+        redirect_to b
+      else
+        flash[:message] = bartender.errors.full_messages.join(", ")
+        redirect_to '/'
+      end 
+    end
+
 
   def destroy
     session.clear

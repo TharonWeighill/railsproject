@@ -5,10 +5,8 @@
 <h2> Welcome to </h2>
 <h1>Shake-N</h1>
 <h3> A Cocktail App </h3>
-
-
-
-<div id="login-form">
+<div class="body">
+<form class="login-form" action="javascript:void(0);">
 <h5>Login</h5>
     <%= form_with(model: @bartender, url: "/login") do |b| %>
         <div class="form-control">
@@ -22,18 +20,15 @@
         <%= b.submit :login%>
     <% end %>
    
-    <div class="third-party-login">
-        <%= button_to "Login with Google", '/auth/google_oauth2'  %>
-        <%= button_to "Login with Github", '/auth/github'  %>
-    </div>
-</div>
 
 <%= button_to "Sign Up", new_bartender_path, method: :get%>
-</div>
 
+    <div class="third-party-login">
+        <%= button_to "Login with Google", '/auth/google_oauth2'  %>
+    </div>
+</div>
+</div>
+<div class="drinks">
 <img src="https://thethreetomatoes.com/wp-content/uploads/2017/04/cocktails.png" class="img-fluid" >
 </div>
-                
-
-
                 

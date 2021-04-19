@@ -1,4 +1,6 @@
-
+<body>
+    <div class="signup"> 
+        <form class="form1">
 <%= form_for(@bartender) do |b| %>
     <%= b.label :username %>
     <%= b.text_field :username %>
@@ -15,6 +17,7 @@
     <%= b.label :password %>
     <%= b.text_field :password %>
     <br>
-<%= b.submit %>
+   <%= b.submit class: "btn btn-primary btn-block btn-large"%>
     <%end%>
-
+</div>
+</body>

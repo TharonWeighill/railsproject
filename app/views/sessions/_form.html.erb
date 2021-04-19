@@ -1,0 +1,18 @@
+<body>
+    <div class="login"> 
+        <form class="form1">
+            <%= form_with(model: @bartender, url: "/login") do |b| %>
+            <%= b.label :username, class: "un " %>
+            <%= b.text_field :username, class: "un " %>
+            <%= b.label :password, class: "pass" %>
+            <%= b.password_field :password, class: "pass" %>
+            <%= b.submit :login, class: "btn btn-primary btn-block btn-large"%>
+        <% end %>
+       
+        <%= button_to "Sign Up", new_bartender_path, class:"btn btn-primary btn-block btn-large", method: :get%>
+        <%= button_to "Login with Google", '/auth/google_oauth2', class:"btn btn-primary btn-block btn-large" %>
+        
+    </div>
+    </div>
+</body>
+

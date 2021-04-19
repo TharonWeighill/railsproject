@@ -16,13 +16,13 @@ class RecipesController < ApplicationController
     end
 
     def create
-        # redirect_if_not_logged_in
+        redirect_if_not_logged_in
         @recipe = Recipe.new(recipe_params(:name, :category, :directions, :ingredient_ids))
         @recipe.bartender = current_user
       
         if @recipe.save
-            #find all ingredients that match all ids in form @recpie.ingredient_ids=[params recipe ingredients_id] 
-            #IngredientRecipe.create(ingreditent_id: 4, recipe: @recipe, value: "#{pamars[:recipe][:quantity]} #{params[:recpipe][:unit}")
+            find all ingredients that match all ids in form @recpie.ingredient_ids=[params recipe ingredients_id] 
+            IngredientRecipe.create(ingreditent_id: 4, recipe: @recipe, value: "#{pamars[:recipe][:quantity]} #{params[:recpipe][:unit}")
             redirect_to @recipe
         else 
             flash[:error] = @recipe.errors.full_messages.to_sentence

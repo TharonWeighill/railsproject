@@ -1,11 +1,10 @@
 <body>
     <div class="login"> 
-        <form class="form1">
-            <%= form_with(model: @bartender, url: "/login") do |b| %>
-            <%= b.label :username, class: "un " %>
-            <%= b.text_field :username, class: "un " %>
-            <%= b.label :password, class: "pass" %>
-            <%= b.password_field :password, class: "pass" %>
+                <%= form_with(model: @bartender, url: "/login") do |b| %>
+            <%= b.label :username %>
+            <%= b.text_field :username %>
+            <%= b.label :password %>
+            <%= b.password_field :password %>
             <%= b.submit :login, class: "btn btn-primary btn-block btn-large"%>
         <% end %>
        

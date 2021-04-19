@@ -21,9 +21,7 @@ Confirm:
 - [x] Views use partials if appropriate
 
 
-#aliasing associtaions 
 #create recipe with ingredients and values
 #scope method
 #oauth w/google 
-#refactoring forms 
 #connecting css styling

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
  
   root 'sessions#home'
+  # get '/auth/google_oauth2/callback', to: sessions
   get '/categories', to: 'recipes#categories'
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
@@ -11,5 +12,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:new, :index, :create]
   resources :bartenders, except: [:index] do
     resources :recipes, shallow: true    
+
+  
   end 
 end

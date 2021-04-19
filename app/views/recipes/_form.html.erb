@@ -1,4 +1,6 @@
-
+<body>
+    <div class="signup"> 
+        <form class="form1">
 <%= form_for(@recipe) do |r| %>
     <%= r.label :name %>
     <%= r.text_field :name %>
@@ -15,6 +17,7 @@
     <%= r.label :directions %>
     <%= r.text_field :directions %>
     <br>
-<%= r.submit %>
+<%= r.submit class: "btn btn-primary btn-block btn-large"%>
     <%end%>
-
+</div>
+</body>

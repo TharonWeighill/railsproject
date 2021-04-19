@@ -1,4 +1,7 @@
-<%= stylesheet_link_tag 'recipe' %>
-<%= render partial: 'application/errors', locals: {object: @recipe} %>
-</h1> Create a new recipe </h1>
  <%= render 'form'  %>
+<%= stylesheet_link_tag 'recipe' %>
+<div class="container">
+<%= render partial: 'application/errors', locals: {object: @recipe} %>
+  <h1 class="heading"> Create a new recipe </h1>
+
+</div>

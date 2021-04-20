@@ -1,9 +1,9 @@
 html {
     height: 100%;
   }
-  
+
   body {
-   
+    overflow: hidden;
     background: #4b1f9c url("https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500://image.freepik.com/free-vector/colorful-tropical-floral-background_23-2148409392.jpg") no-repeat center center fixed;
     background-size: cover;
     position: fixed;
@@ -14,12 +14,12 @@ html {
     font: normal 14px/1.618em "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
   }
-  
+
   body:before {
     content: "";
     height: 0px;
     padding: 0px;
-    border: 130em solid #5e0897;
+    border: 130em solid #313440;
     position: absolute;
     left: 50%;
     top: 100%;
@@ -32,34 +32,34 @@ html {
     -webkit-animation: puff 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2.3s linear forwards;
     animation: puff 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2.3s linear forwards;
   }
-  
+
   h1,
   h2 {
     font-weight: 500;
     margin: 0px 0px 5px 0px;
   }
-  
+
   h1 {
     font-size: 24px;
   }
-  
+
   h2 {
     font-size: 16px;
   }
-  
+
   p {
     margin: 0px;
   }
-  
+
   .profile-card {
-    
+    background: #dda115;
     width: 56px;
-    height: 100px;
+    height: 56px;
     position: absolute;
     left: 50%;
     top: 50%;
     z-index: 2;
-   
+    overflow: hidden;
     opacity: 0;
     margin-top: 70px;
     -webkit-transform: translate(-50%, -50%);
@@ -71,15 +71,73 @@ html {
     -webkit-animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
     animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
   }
-  
-    .profile-card header h1 {
-    color: #ff0095;
+
+  .profile-card header {
+    width: 179px;
+    height: 280px;
+    padding: 40px 20px 30px 20px;
+    display: inline-block;
+    float: left;
+    border-right: 2px dashed #EEEEEE;
+    background: #FFFFFF;
+    color: #000000;
+    margin-top: 50px;
+    opacity: 0;
+    text-align: center;
+    -webkit-animation: moveIn 1s 3.1s ease forwards;
+    animation: moveIn 1s 3.1s ease forwards;
   }
-  
-  
+
+  .profile-card header h1 {
+    color: #FF5722;
+  }
+
+  .profile-card header a {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    margin: 25px 30px;
+  }
+
+  .profile-card header a:after {
+    position: absolute;
+    content: "";
+    bottom: 3px;
+    right: 3px;
+    width: 20px;
+    height: 20px;
+    border: 4px solid #FFFFFF;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    background: -webkit-linear-gradient(top, #2196F3 0%, #2196F3 50%, #FFC107 50%, #FFC107 100%);
+    background: linear-gradient(#2196F3 0%, #2196F3 50%, #FFC107 50%, #FFC107 100%);
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-animation: scaleIn 0.3s 3.5s ease forwards;
+    animation: scaleIn 0.3s 3.5s ease forwards;
+  }
+
+  .profile-card header a > img {
+    width: 120px;
+    max-width: 100%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: -webkit-box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
+    -webkit-box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
+    box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .profile-card header a:hover > img {
+    -webkit-box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
+  }
+
   .profile-card .profile-bio {
     width: 175px;
-    height: 200px;
+    height: 180px;
     display: inline-block;
     float: right;
     padding: 50px 20px 30px 20px;
@@ -91,10 +149,10 @@ html {
     -webkit-animation: moveIn 1s 3.1s ease forwards;
     animation: moveIn 1s 3.1s ease forwards;
   }
-  
-  
-   
-  
+
+
+
+
   @-webkit-keyframes init {
     0% {
       width: 0px;
@@ -107,7 +165,7 @@ html {
       opacity: 1;
     }
   }
-  
+
   @keyframes init {
     0% {
       width: 0px;
@@ -120,7 +178,7 @@ html {
       opacity: 1;
     }
   }
-  
+
   @-webkit-keyframes puff {
     0% {
       top: 100%;
@@ -133,7 +191,7 @@ html {
       padding: 0px 100%;
     }
   }
-  
+
   @keyframes puff {
     0% {
       top: 100%;
@@ -146,7 +204,7 @@ html {
       padding: 0px 100%;
     }
   }
-  
+
   @-webkit-keyframes borderRadius {
     0% {
       -webkit-border-radius: 50%;
@@ -155,7 +213,7 @@ html {
       -webkit-border-radius: 0px;
     }
   }
-  
+
   @keyframes borderRadius {
     0% {
       -webkit-border-radius: 50%;
@@ -164,7 +222,7 @@ html {
       border-radius: 0px;
     }
   }
-  
+
   @-webkit-keyframes moveDown {
     0% {
       top: 50%;
@@ -176,7 +234,7 @@ html {
       top: 100%;
     }
   }
-  
+
   @keyframes moveDown {
     0% {
       top: 50%;
@@ -188,7 +246,7 @@ html {
       top: 100%;
     }
   }
-  
+
   @-webkit-keyframes moveUp {
     0% {
       background: #f10505;
@@ -202,7 +260,7 @@ html {
       background: #E0E0E0;
     }
   }
-  
+
   @keyframes moveUp {
     0% {
       background: #0026ff;
@@ -216,7 +274,7 @@ html {
       background: #E0E0E0;
     }
   }
-  
+
   @-webkit-keyframes materia {
     0% {
       background: #E0E0E0;
@@ -231,7 +289,7 @@ html {
       -webkit-border-radius: 4px;
     }
   }
-  
+
   @keyframes materia {
     0% {
       background: #E0E0E0;
@@ -246,7 +304,7 @@ html {
       border-radius: 4px;
     }
   }
-  
+
   @-webkit-keyframes moveIn {
     0% {
       margin-top: 50px;
@@ -257,7 +315,7 @@ html {
       margin-top: -20px;
     }
   }
-  
+
   @keyframes moveIn {
     0% {
       margin-top: 50px;
@@ -268,7 +326,7 @@ html {
       margin-top: -20px;
     }
   }
-  
+
   @-webkit-keyframes scaleIn {
     0% {
       -webkit-transform: scale(0);
@@ -277,7 +335,7 @@ html {
       -webkit-transform: scale(1);
     }
   }
-  
+
   @keyframes scaleIn {
     0% {
       transform: scale(0);
@@ -286,7 +344,7 @@ html {
       transform: scale(1);
     }
   }
-  
+
   @-webkit-keyframes ripple {
     0% {
       transform: scale3d(0, 0, 0);
@@ -299,7 +357,7 @@ html {
       opacity: 0;
     }
   }
-  
+
   @keyframes ripple {
     0% {
       transform: scale3d(0, 0, 0);
@@ -312,7 +370,7 @@ html {
       opacity: 0;
     }
   }
-  
+
   @media screen and (min-aspect-ratio: 4/3) {
     body {
       background-size: cover;
@@ -345,7 +403,7 @@ html {
       }
     }
   }
-  
+
   @media screen and (min-height: 480px) {
     .profile-card header {
       width: auto;
@@ -398,4 +456,9 @@ html {
   }
 
 
-  
+  .links {
+
+    text-align: center
+
+  }
+

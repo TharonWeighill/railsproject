@@ -1,9 +1,5 @@
-
-
-
-<%= stylesheet_link_tag 'recipe_show' %>
+<%= stylesheet_link_tag 'bartender' %>
 <aside class="profile-card">
-
     <header>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT61LJDRIwjkRuOjVe5uWEd44qRGOEzVmI20LKHBENs7S-uKCRHz-GXNLgaf4BFicTCU0c&usqp=CAU" class="hoverZoomLink">
         <h1><%=@bartender.username%></h1>
@@ -15,12 +11,11 @@
       
         </p>
     </div>
-
+<div class="links">
 <button> <%= link_to "Look-N", recipes_path %></button>
 <button> <%= link_to "Make-N", new_recipe_path %></button>
 <button> <%= link_to "Logout", '/logout' %></button>
-<button><%= link_to "My Page", @bartender %> </button>
-
-<%= render partial: "modify_buttons", locals: {resource: @bartenders} %>
+<button> <%= link_to "EDIT",edit_bartender_path(@bartender) %></button>
+</div>
 
 </aside>

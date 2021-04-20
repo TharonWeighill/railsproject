@@ -7,11 +7,11 @@
     <%= r.label :category%>
     <%= r.text_field :category %>
     <br>
-   
-    <%= r.label :ingredient_ids, "Select an Ingredient" %>
-    <%= r.collection_select(:ingredients_ids,  Ingredient.all, :id, :ingredient, prompt: "Pick one")%> <%= r.number_field :quantity %><%=r.select(:unit, options_for_select(unit_list), prompt: "Select Dosage")%>
+    <%= r.fields_for :ingredient_recipes  do |ir| %>
+    <%= ir.label :ingredient_id, "Select an Ingredient" %>
+    <%= ir.collection_select(:ingredient_id,  Ingredient.all, :id, :ingredient, prompt: "Pick one")%> <%= ir.number_field :value %><%=ir.select(:unit, options_for_select(unit_list), prompt: "Select Dosage")%>
     <br>
-    
+    <%end%>
     <br>
     <%= r.label :directions %>
     <%= r.text_field :directions %>

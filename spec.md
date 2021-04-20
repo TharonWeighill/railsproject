@@ -21,10 +21,10 @@ Confirm:
 - [x] Views use partials if appropriate
 
 
-#create recipe with ingredients and values
+
 #create comments
 #display complete recipe card with commentsn ingredients and values
 #scope method
-#oauth w/google 
-#nested route?
-
+#recipe and bartender edit not working
+#reipce and bartender destroy not working 
+#my page link on recipe show not working

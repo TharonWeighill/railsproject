@@ -6,4 +6,5 @@ class Recipe < ApplicationRecord
     has_many :ingredients, through: :ingredient_recipes
     validates :name, presence: true, uniqueness: true
     validates :category, presence: true
+    accepts_nested_attributes_for :ingredient_recipes, reject_if: lambda {|attributes| attributes["unit"].blank? || attributes["value"].blank?|| attributes["ingredient_id"].blank?} 
 end 

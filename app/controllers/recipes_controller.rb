@@ -27,8 +27,6 @@ class RecipesController < ApplicationController
         @recipe.bartender = current_user
  
         if @recipe.save
-            #find all ingredients that match all ids in form @recpie.ingredient_ids=[params recipe ingredients_id] 
-            #IngredientRecipe.create(ingreditent_id: 4, recipe: @recipe, value: "#{pamars[:recipe][:quantity]} #{params[:recpipe][:unit}")
             redirect_to @recipe
         else 
             flash.now[:error] = @recipe.errors.full_messages.to_sentence

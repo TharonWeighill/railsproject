@@ -1,5 +1,6 @@
 class BartendersController < ActionController::Base
-    before_action :find_bartender, only: [:show, :edit, :update, :destroy]
+    include ApplicationHelper
+    before_action :find_bartender
         
     def new
         @bartender = Bartender.new       
@@ -22,12 +23,12 @@ class BartendersController < ActionController::Base
     end 
    
     def edit
-
+        redirect_if_not_logged_in
     end
 
     def update
-
-        if @bartender.update(user_params)
+        @bartender.update(user_params(:username, :about, :email, :password))
+        if @bartender.valid?
             redirect_to bartender_path(@bartender)
         else
             render :edit
@@ -35,11 +36,9 @@ class BartendersController < ActionController::Base
     end 
 
     def destroy
-        if @bartender.destroy
-            redirect_to '/'
-        else
-            redirect_to back
-        end 
+        @bartender.destroy
+
+        redirect_to '/'
     end 
 
 
@@ -48,8 +47,9 @@ class BartendersController < ActionController::Base
     def find_bartender
         @bartender = Bartender.find(params[:id])
     end
-    def user_params
-        params.require(:bartender).permit(:username, :about, :email, :password, :confirm_password)
+    def user_params(*args)
+        params.require(:bartender).permit(*args)
     end
+
 
 end 

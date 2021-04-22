@@ -18,6 +18,8 @@ class SessionsController < ApplicationController
     end
   end 
 
+  
+
     def omniauth
      bartender = Bartender.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |b|
       

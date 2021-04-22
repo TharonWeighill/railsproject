@@ -1,5 +1,15 @@
-<%= render partial: 'application/errors', locals: {object: @bartender} %>
 <%= stylesheet_link_tag 'signup' %>
-<%= render 'form' %>
+
+
+<body>
+    <div class="signup"> 
+        <form class="form1">
+<%= form_for @bartender do |b| %>
+<%= render partial: 'form', locals: {b: b} %>
+<%= b.submit class: 'button' %>
+    <%end%>
+    <div class="delete-button"><%= button_to "Delete", @bartender, method: "delete", data: {confirm: "Are you sure???"}  %></div>
+</div>
+</body>
+
 <br>
-<%= link_to "destroy", @bartender , class: "btn btn-danger", data: {:confirm => 'Are you sure?'}, :method => :delete%>

@@ -3,10 +3,10 @@
 
 <body>
     <div class="signup"> 
-        <form class="form1">
+     
 <%= form_for @bartender do |b| %>
 <%= render partial: 'form', locals: {b: b} %>
-<%= b.submit class: 'button' %>
+<%= b.submit class: 'button', method: "PATCH" %>
     <%end%>
     <div class="delete-button"><%= button_to "Delete", @bartender, method: "delete", data: {confirm: "Are you sure???"}  %></div>
 </div>

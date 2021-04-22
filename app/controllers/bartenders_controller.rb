@@ -27,7 +27,7 @@ class BartendersController < ActionController::Base
     end
 
     def update
-        @bartender.update(user_params(:username, :about, :email, :password))
+        @bartender.update(user_params)
         if @bartender.valid?
             redirect_to bartender_path(@bartender)
         else
@@ -47,9 +47,8 @@ class BartendersController < ActionController::Base
     def find_bartender
         @bartender = Bartender.find(params[:id])
     end
-    def user_params(*args)
-        params.require(:bartender).permit(*args)
-    end
-
+    def user_params
+        params.require(:bartender).permit(:username, :about, :email, :password, :confirm_password)
+    end 
 
 end 

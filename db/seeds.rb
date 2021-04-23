@@ -17,3 +17,11 @@ end
 100.times do
     Ingredient.create(ingredient: Faker::Food.ingredient) 
 end
+
+Ingredient.create(ingredient: "Vodka")
+Ingredient.create(ingredient: "Gin")
+Ingredient.create(ingredient: "Whisky")
+Ingredient.create(ingredient: "Tequila")
+Ingredient.create(ingredient: "Rum")
+Ingredient.create(ingredient: "Mezcal")
+Ingredient.create(ingredient: "Scotch")

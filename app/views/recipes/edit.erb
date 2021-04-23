@@ -1,6 +1,5 @@
 <%= stylesheet_link_tag 'signup' %>
+<%= render 'navbar' %>
 <%= render partial: 'application/errors', locals: {object: @recipe} %>
-
 <%= render 'form' %>
-
 <%= link_to "destroy", @recipe , class: "btn btn-danger", data: {:confirm => 'Are you sure?'}, :method => :delete%>

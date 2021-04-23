@@ -8,17 +8,39 @@
         <h2><%=@recipe.category%></h2>
     </header>
 
-    <div class="profile-bio">
+   
+        <table style="width: 100%">
+            <tr>
+            <th>Ingredient</th>
+            <th>Measurement</th>
+          </tr> 
+          <%@recipe.ingredient_recipes.each do |ir|%>
+          <tr>
+            <td><%=ir.ingredient%></td>
+            <td><%=ir.value%></td>
+            <td><%=ir.unit%></td>
+          </tr>
+          <%end%>
+        </table>
         <p>
             <%=@recipe.directions%>
         </p>
-    </div>
     <button> <%= link_to "Edit Cocktail", edit_recipe_path(@recipe) %></button>
     <button> <%= link_to "Look-N", recipes_path %></button>
     <button> <%= link_to "Make-N", new_recipe_path %></button>
     <button> <%= link_to "Logout", '/logout' %></button>
     <button><%= link_to "My Page", @bartender %> </button>
 
-</aside>
+        <h1>Leave a comment</h1>
+<form action="@recipe" method="PATCH">
+    <input type="text" name="textbody">
+    <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
+    <input type="submit" value="Comment">
+  <%if @comments.size > 0 %> 
+    <% @comments.each do |c| %> 
+    <p class="m-b-5 m-t-10"><%=c.textbody%></p>
+    <%end%>
 
-<%# <%= render 'comments' %> 
+
+</aside>
+<%end%>

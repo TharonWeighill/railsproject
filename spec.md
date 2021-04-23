@@ -23,8 +23,5 @@ Confirm:
 
 
 #create comments
-#display complete recipe card with commentsn ingredients and values
 #scope method
-#recipe and bartender edit not working
-#reipce and bartender destroy not working 
-#my page link on recipe show not working
+#recipe edit not working

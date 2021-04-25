@@ -16,7 +16,7 @@
           </tr> 
           <%@recipe.ingredient_recipes.each do |ir|%>
           <tr>
-            <td><%=ir.ingredient%></td>
+            <td><%=ir.ingredient.ingredient%></td>
             <td><%=ir.value%></td>
             <td><%=ir.unit%></td>
           </tr>
@@ -32,15 +32,17 @@
     <button><%= link_to "My Page", @bartender %> </button>
 
         <h1>Leave a comment</h1>
-<form action="@recipe" method="PATCH">
-    <input type="text" name="textbody">
-    <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
-    <input type="submit" value="Comment">
+<%= form_for(@comment) do |c| %>
+    <%= c.label :textbody %>
+    <%= c.text_field :textbody %>
+    <%= c.hidden_field :recipe_id, value: @recipe.id %>
+    <%=c.submit "Leave a comment"%>
+<%end%>
+
   <%if @comments.size > 0 %> 
     <% @comments.each do |c| %> 
     <p class="m-b-5 m-t-10"><%=c.textbody%></p>
     <%end%>
-
+  <%end%>
 
 </aside>
-<%end%>

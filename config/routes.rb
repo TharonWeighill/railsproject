@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
   get '/logout', to: 'sessions#destroy'
 
+  resources :comments, only: [:create, :edit, :update, :destroy]
   resources :recipes, only: [:new, :index, :create]
   resources :bartenders, except: [:index] do
-    resources :recipes, shallow: true    
+    resources :recipes, shallow: true 
+
 
   
   end 

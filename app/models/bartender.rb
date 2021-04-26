@@ -4,5 +4,5 @@ class Bartender < ApplicationRecord
     has_secure_password
     validates :password,    length: {in: 8..30}, confirmation: true, on: :create
     validates :username, uniqueness:{:message => "Username already exists."}, length: {in: 1..30}
-     validates :email, presence: true #uniqueness: true 
+    validates :email, presence: true #uniqueness: true 
 end

@@ -24,8 +24,7 @@ class RecipesController < ApplicationController
     def create
         redirect_if_not_logged_in
         @recipe = Recipe.new(recipe_params(:name, :category, :directions, ingredient_recipes_attributes: [:unit, :value, :ingredient_id]))
-        @recipe.bartender = current_user
- 
+        @recipe.bartender = current_user 
         if @recipe.save
             redirect_to @recipe
         else 

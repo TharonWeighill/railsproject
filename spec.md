@@ -21,4 +21,12 @@ Confirm:
 - [x] Views use partials if appropriate
 
 
-#scope method
+#scope method(sort by category)
+#readme 
+
+
+#css create recipe 
+#css index 
+#nav bar on show pages
+#dry as much as possible 
+#clean up

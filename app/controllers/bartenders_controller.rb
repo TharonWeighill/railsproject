@@ -37,7 +37,6 @@ class BartendersController < ActionController::Base
 
     def destroy
         @bartender.destroy
-
         redirect_to '/'
     end 
 
@@ -47,6 +46,7 @@ class BartendersController < ActionController::Base
     def find_bartender
         @bartender = Bartender.find(params[:id])
     end
+    
     def user_params
         params.require(:bartender).permit(:username, :about, :email, :password, :confirm_password)
     end 

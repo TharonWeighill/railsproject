@@ -5,10 +5,14 @@ class RecipesController < ApplicationController
     def index
         if params[:bartender_id] && @bartender = Bartender.find_by(id: params[:bartender_id])
             @recipes = @bartender.recipes 
-
+        
+        elsif params[:search]
+            @recipes = Recipe.filter_by_category_name(params[:search])           
+            
         else     
             @recipes = Recipe.all
         end
+
     end
 
     def show

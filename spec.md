@@ -21,7 +21,4 @@ Confirm:
 - [x] Views use partials if appropriate
 
 
-
-#create comments
 #scope method
-#error handling 

@@ -44,7 +44,7 @@ class BartendersController < ActionController::Base
     private 
     
     def find_bartender
-        @bartender = Bartender.find(params[:id])
+        @bartender = Bartender.find_by_id(params[:id])
     end
     
     def user_params

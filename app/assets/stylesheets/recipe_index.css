@@ -1,10 +1,13 @@
+h1 {
+    color:rgb(226, 43, 134);
+ }
 body {
     background-image: url("https://wallpapercave.com/wp/wp3322421.jpg");
     background-color: #795353;
-   }
+}
 
 .card-body {
-
-background-color: chocolate;
-
+    
+    background-color: chocolate;
+    
 }

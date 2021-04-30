@@ -1,44 +1,45 @@
 <%= render partial: 'application/errors', locals: {object: @recipe} %>
-
 <%= stylesheet_link_tag 'recipe_show' %>
 <aside class="profile-card">
 
-    <header>
-        <img src="https://makemeacocktail.com/images/no_cocktail_blue.png" class="hoverZoomLink">
-        <h1><%=@recipe.name%></h1>
-        <h2><%=@recipe.category%></h2>
-    </header>
+  <header>
+    <img src="https://makemeacocktail.com/images/no_cocktail_blue.png" class="hoverZoomLink">
+    <h1><%=@recipe.name%></h1>
+    <h2><%=@recipe.category%></h2>
+  </header>
 
    
-        <table style="width: 100%">
-            <tr>
-            <th>Ingredient</th>
-            <th>Measurement</th>
-          </tr> 
-          <%@recipe.ingredient_recipes.each do |ir|%>
-          <tr>
-            <td><%=ir.ingredient.ingredient%></td>
-            <td><%=ir.value%></td>
-            <td><%=ir.unit%></td>
-          </tr>
-          <%end%>
-        </table>
-        <p>
-            <%=@recipe.directions%>
-        </p>
-    <button> <%= link_to "Edit Cocktail", edit_recipe_path(@recipe) %></button>
-    <button> <%= link_to "Look-N", recipes_path %></button>
-    <button> <%= link_to "Make-N", new_recipe_path %></button>
-    <button> <%= link_to "Logout", '/logout' %></button>
-    <button><%= link_to "My Page", @bartender %> </button>
+  <table style="width: 100%">
+    <tr>
+      <th>Ingredient</th>
+      <th>Measurement</th>
+    </tr> 
+    <%@recipe.ingredient_recipes.each do |ir|%>
+      <tr>
+        <td><%=ir.ingredient.ingredient%></td>
+        <td><%=ir.value%></td>
+        <td><%=ir.unit%></td>
+      </tr>
+    <%end%>
+  </table>
+  <p>
+    <%=@recipe.directions%>
+  </p>
 
-        <h1>Leave a comment</h1>
-<%= form_for(@comment) do |c| %>
+  <button> <%= link_to "Edit Cocktail", edit_recipe_path(@recipe) %></button>
+  <button> <%= link_to "Look-N", recipes_path %></button> 
+  <button> <%= link_to "Make-N", new_recipe_path %></button>
+  <button> <%= link_to "Logout", '/logout' %></button>
+  <button><%= link_to "My Page", @bartender %> </button>
+
+  <h1>Leave a comment</h1>
+
+  <%= form_for(@comment) do |c| %>
     <%= c.label :textbody %>
     <%= c.text_field :textbody %>
     <%= c.hidden_field :recipe_id, value: @recipe.id %>
     <%=c.submit "Leave a comment"%>
-<%end%>
+  <%end%>
 
   <%if @comments.size > 0 %> 
     <% @comments.each do |c| %> 

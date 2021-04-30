@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'recipe_index' %>
 <%= render 'navbar' %>
 <%= form_with(url: recipes_path, method: :get) do |s|%>
-<%= s.label :search, "seach by category" %>
+<h1><%= s.label :search, "seach by category" %></h1>
 <%= s.text_field :search %>
 <%= s.submit "search" %>
 <%end%>

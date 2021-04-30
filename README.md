@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Welcome Bartender! 
 
-* Ruby version
+This is Shake'n, a cocktail app. 
+To get started lets run bundle install.
+Once you get your gems installed launch the app using rails s in the commnad line.
+Please create a Profile to start the fun!
 
-* System dependencies
+Featues to look forward to are things such as;
+share your cocktail photos,
+rate other cocktails!
 
-* Configuration
+Thank you for checking us out, hope you have fun!
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

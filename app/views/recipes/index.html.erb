@@ -1,5 +1,13 @@
 <%= stylesheet_link_tag 'recipe_index' %>
 <%= render 'navbar' %>
+
+<%= form_with(url: recipes_path, method: :get) do |l|%>
+<%= l.hidden_field :length%>
+<%= l.submit "less than 4" %>
+<%end%>
+
+
+
 <%= form_with(url: recipes_path, method: :get) do |s|%>
 <h1><%= s.label :search, "seach by category" %></h1>
 <%= s.text_field :search %>

@@ -3,11 +3,15 @@ class RecipesController < ApplicationController
     before_action :find_recipe, only: [:edit, :show, :update, :destroy]
 
     def index
+        
         if params[:bartender_id] && @bartender = Bartender.find_by(id: params[:bartender_id])
             @recipes = @bartender.recipes 
         
         elsif params[:search]
-            @recipes = Recipe.filter_by_category_name(params[:search])           
+            @recipes = Recipe.filter_by_category_name(params[:search])
+        
+        elsif params[:length]
+           @recipes = Recipe.filter_by_length       
             
         else     
             @recipes = Recipe.all
